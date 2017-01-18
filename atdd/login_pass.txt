@@ -1,0 +1,15 @@
+*** Settings **
+Library    Selenium2Library
+Test Teardown    Close Browser
+
+*** Variables ***
+${LOGIN_URL}    http://localhost:9999/web/login.php
+
+
+*** Testcases ***
+Login pass
+	Open Browser     ${LOGIN_URL}
+	Input Text    username    demo
+	Input Text    password     ok
+	Click Button    Login
+	Wait Until Page Contains  Welcome to my world
